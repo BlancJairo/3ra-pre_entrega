@@ -1,0 +1,14 @@
+{% extends "pre_entrega/base.html" %}
+
+{% block contenido%}
+<section>
+    <div>
+        <h1>Lista de autos</h1>
+        <ul>
+            {% for auto in autos %}
+                <li>{{auto.marca}}, {{auto.modelo}}, {{auto.ano}}
+            {% endfor %}           
+        </ul>
+    </div>
+</section>
+{% endblock contenido%}
