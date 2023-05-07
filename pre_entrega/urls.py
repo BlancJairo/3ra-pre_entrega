@@ -17,11 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pre_entrega.views import saludo, saludar_con_html
-from app_preentrega.views import lista_autos
+from app_preentrega.views import lista_autos, lista_camionetas, lista_camiones, lista_motos, lista_bicicletas
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludo/', saludo),
     path('saludar2/', saludar_con_html),
-    path('lista_autos/', lista_autos)
+    path('lista_autos/', lista_autos),
+    path('lista_camionetas/', lista_camionetas),
+    path('lista_camiones/', lista_camiones),
+    path('lista_motos/', lista_motos),
+    path('lista_bicicletas/', lista_bicicletas),
 ]

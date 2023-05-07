@@ -3,7 +3,7 @@
 {% block contenido%}<!--esto abre el bloque que se agrega-->
 <section>
     <div>
-        <h1>Lista de autos</h1>
+        <h1>Lista de motos</h1>
         <ul> <!--con este codigo se crea una lista con los datos del contexto en la view-->
             {% for auto in autos %}
                 <li>{{auto.marca}}, {{auto.modelo}}, {{auto.ano}}

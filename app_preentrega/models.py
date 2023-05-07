@@ -1,6 +1,6 @@
 from django.db import models
 
-class Camionetas (models.Model):
+class autos (models.Model):
     marca = models.CharField(max_length=50)
     modelo = models.CharField(max_length=50)
     ano = models.ImageField(max_length=50)
@@ -8,7 +8,7 @@ class Camionetas (models.Model):
     equipamiento = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=200)
 
-class autos (models.Model):
+class Camionetas (models.Model):
     marca = models.CharField(max_length=50)
     modelo = models.CharField(max_length=50)
     ano = models.ImageField(max_length=50)
