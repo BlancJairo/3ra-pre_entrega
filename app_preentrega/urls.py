@@ -20,9 +20,9 @@ from django.urls import path
 from app_preentrega.views import lista_autos, lista_camionetas, lista_camiones, lista_motos, lista_bicicletas
 
 urlpatterns = [
-    path('lista_autos/', lista_autos),
-    path('lista_camionetas/', lista_camionetas),
-    path('lista_camiones/', lista_camiones),
-    path('lista_motos/', lista_motos),
-    path('lista_bicicletas/', lista_bicicletas),
+    path('lista_autos/', lista_autos, name="autos"),
+    path('lista_camionetas/', lista_camionetas, name="camionetas"),
+    path('lista_camiones/', lista_camiones, name="camiones"),
+    path('lista_motos/', lista_motos, name="motos"),
+    path('lista_bicicletas/', lista_bicicletas, name="bicicletas"),
 ]

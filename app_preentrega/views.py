@@ -2,13 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def lista_autos(request): #esto renderiza una lista con el contexto que se le pase
-    contexto = {
-        "autos": [
-            {"marca": "Volkswagen", "modelo": "gol", "ano":2005},
-            {"marca": "Ford", "modelo": "focus", "ano":2015},
-            {"marca": "chevrolet", "modelo": "corsa", "ano":2001},
-        ]
-    }
+    contexto = {  }
     http_response = render(
         request = request,
         template_name = 'pre_entrega/lista_autos.html',
@@ -17,7 +11,7 @@ def lista_autos(request): #esto renderiza una lista con el contexto que se le pa
     return http_response
 
 def lista_camionetas(request): #esto renderiza una lista con el contexto que se le pase
-    contexto = {    }
+    contexto = {  }
     http_response = render(
         request = request,
         template_name = 'pre_entrega/lista_camionetas.html',
@@ -26,7 +20,7 @@ def lista_camionetas(request): #esto renderiza una lista con el contexto que se 
     return http_response
 
 def lista_camiones(request): #esto renderiza una lista con el contexto que se le pase
-    contexto = {    }
+    contexto = {  }
     http_response = render(
         request = request,
         template_name = 'pre_entrega/lista_camiones.html',
@@ -35,7 +29,7 @@ def lista_camiones(request): #esto renderiza una lista con el contexto que se le
     return http_response
 
 def lista_motos(request): #esto renderiza una lista con el contexto que se le pase
-    contexto = {    }
+    contexto = {  }
     http_response = render(
         request = request,
         template_name = 'pre_entrega/lista_motos.html',
@@ -44,7 +38,7 @@ def lista_motos(request): #esto renderiza una lista con el contexto que se le pa
     return http_response
 
 def lista_bicicletas(request): #esto renderiza una lista con el contexto que se le pase
-    contexto = {    }
+    contexto = {  }
     http_response = render(
         request = request,
         template_name = 'pre_entrega/lista_bicicletas.html',

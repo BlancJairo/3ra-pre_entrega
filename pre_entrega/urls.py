@@ -21,6 +21,6 @@ from pre_entrega.views import inicio
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', inicio),
-    path('listados/', include("app_preentrega.urls"))#con esto incluyo las urls de la app
+    path('', inicio, name="inicio"),
+    path('listados/', include("app_preentrega.urls"), name="inicio")#con esto incluyo las urls de la app
     ]
