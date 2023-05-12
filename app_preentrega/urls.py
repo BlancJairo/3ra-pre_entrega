@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.urls import path
 
-from app_preentrega.views import lista_autos, lista_camionetas, lista_camiones, lista_motos, lista_bicicletas
+from app_preentrega.views import lista_autos, lista_camionetas, lista_camiones, lista_motos, lista_bicicletas, subir_autos, subir_camionetas, subir_camiones, subir_motos,subir_bicicletas
 
 urlpatterns = [
     path('lista_autos/', lista_autos, name="autos"),
@@ -25,4 +25,9 @@ urlpatterns = [
     path('lista_camiones/', lista_camiones, name="camiones"),
     path('lista_motos/', lista_motos, name="motos"),
     path('lista_bicicletas/', lista_bicicletas, name="bicicletas"),
+    path('subir-autos/', subir_autos, name="subir_autos"),
+    path('subir-camionetas/', subir_camionetas, name="subir_camionetas"),
+    path('subir-camiones/', subir_camiones, name="subir_camiones"),
+    path('subir-motos/', subir_motos, name="subir_motos"),
+    path('subir-bicicletas/', subir_bicicletas, name="subir_bicicletas"),
 ]
