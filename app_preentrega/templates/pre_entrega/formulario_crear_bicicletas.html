@@ -1,7 +1,7 @@
 {% extends "pre_entrega/base.html" %} 
 
 {% block contenido %} 
-<form action="{% url 'subir_bicicletas'%}" method="post"> 
+<form action="{% url 'subir_bicicletas'%}" method="POST"> 
     {% csrf_token %}
     <p>Marca</p>
     <input type="text" name="marca">
@@ -10,11 +10,11 @@
     <p>Año</p>
     <input type="text" name="ano">
     <p>Color</p>
-    <input type="text" name="marca">
+    <input type="text" name="color">
     <p>Equipamiento</p>
-    <input type="text" name="marca">
+    <input type="text" name="equipamiento">
     <p>Descripcion</p>
-    <input type="text" name="marca">
+    <input type="text" name="descripcion">
     <input type="submit" value = "Enviar">
 </form>
 {% endblock contenido %}

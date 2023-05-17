@@ -1,20 +1,22 @@
 {% extends "pre_entrega/base.html" %} 
 
 {% block contenido %} 
-<form action="{% url 'subir_autos'%}" method="post"> 
-    {% csrf_token %}
-    <p>Marca</p>
-    <input type="text" name="marca">
-    <p>Modelo</p>
-    <input type="text" name="modelo">
-    <p>Año</p>
-    <input type="text" name="ano">
-    <p>Color</p>
-    <input type="text" name="marca">
-    <p>Equipamiento</p>
-    <input type="text" name="marca">
-    <p>Descripcion</p>
-    <input type="text" name="marca">
-    <input type="submit" value = "Enviar">
-</form>
+<section>    
+    <form action="{% url 'subir_autos'%}" method="POST"> 
+     {% csrf_token %}
+     <p>Marca</p>
+     <input type="text" name="marca">
+     <p>Modelo</p>
+     <input type="text" name="modelo">
+     <p>Año</p>
+     <input type="text" name="ano">
+     <p>Color</p>
+     <input type="text" name="color">
+     <p>Equipamiento</p>
+     <input type="text" name="equipamiento">
+     <p>Descripcion</p>
+     <input type="text" name="descripcion">
+     <input type="submit" value = "Enviar">
+    </form>
+</section>    
 {% endblock contenido %}

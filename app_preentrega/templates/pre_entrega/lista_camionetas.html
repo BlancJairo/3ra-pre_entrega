@@ -4,6 +4,7 @@
 <section>
     <div>
         <h1>Lista de camionetas</h1>
+        <a class="navbar-brand" href="{% url 'subir_camionetas' %}"> Publicar camioneta </a>
         <ul> <!--con este codigo se crea una lista con los datos del contexto en la view-->
             {% for auto in autos %}
                 <li>{{auto.marca}}, {{auto.modelo}}, {{auto.ano}}

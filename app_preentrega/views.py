@@ -59,28 +59,29 @@ def lista_bicicletas(request): #esto renderiza una lista con el contexto que se 
     return http_response
 
 def subir_autos(request): 
-    if request.method == "POST":
+    if request.method == 'POST':
         data = request.POST
-        marca = request ["marca"]
-        modelo = request ["modelo"]
-        ano = request ["ano"]
-        color = request ["color"]
-        equipamiento = request ["equipamiento"]
-        descripcion = request ["descripcion"]
-        auto = autos.objects.create(
+        marca = data ["marca"]
+        modelo = data ["modelo"]
+        ano = data ["ano"]
+        color = data ["color"]
+        equipamiento = data ["equipamiento"]
+        descripcion = data ["descripcion"]
+        auto = autos(
             marca = marca,
             modelo = modelo,
             ano = ano,
             color = color,
             equipamiento = equipamiento, 
-            descripcion = descripcion,
+            descripcion = descripcion
         )
+        auto.save()
         url_exitosa = reverse('autos')
         return redirect(url_exitosa)
     else:
         Http_response = render(
         request = request,
-        template_name = 'pre_entrega/lista_autos.html', 
+        template_name = 'pre_entrega/formulario_crear_auto.html', 
         )
         return Http_response
     
@@ -93,7 +94,7 @@ def subir_camionetas(request):
         color = request ["color"]
         equipamiento = request ["equipamiento"]
         descripcion = request ["descripcion"]
-        auto = autos.objects.create(
+        Camionetas.objects.create(
             marca = marca,
             modelo = modelo,
             ano = ano,
@@ -106,7 +107,7 @@ def subir_camionetas(request):
     else:
         Http_response = render(
         request = request,
-        template_name = 'pre_entrega/lista_camionetas.html', 
+        template_name = 'pre_entrega/formulario_crear_camionetas.html', 
         )
         return Http_response
     
@@ -119,7 +120,7 @@ def subir_camiones(request):
         color = request ["color"]
         equipamiento = request ["equipamiento"]
         descripcion = request ["descripcion"]
-        auto = autos.objects.create(
+        Camiones.objects.create(
             marca = marca,
             modelo = modelo,
             ano = ano,
@@ -132,7 +133,7 @@ def subir_camiones(request):
     else:
         Http_response = render(
         request = request,
-        template_name = 'pre_entrega/lista_camiones.html', 
+        template_name = 'pre_entrega/formulario_crear_camiones.html', 
         )
         return Http_response
     
@@ -145,7 +146,7 @@ def subir_motos(request):
         color = request ["color"]
         equipamiento = request ["equipamiento"]
         descripcion = request ["descripcion"]
-        auto = autos.objects.create(
+        motos.objects.create(
             marca = marca,
             modelo = modelo,
             ano = ano,
@@ -158,7 +159,7 @@ def subir_motos(request):
     else:
         Http_response = render(
         request = request,
-        template_name = 'pre_entrega/lista_motos.html', 
+        template_name = 'pre_entrega/formulario_crear_motos.html', 
         )
         return Http_response
     
@@ -171,7 +172,7 @@ def subir_bicicletas(request):
         color = request ["color"]
         equipamiento = request ["equipamiento"]
         descripcion = request ["descripcion"]
-        auto = autos.objects.create(
+        bicicletas.objects.create(
             marca = marca,
             modelo = modelo,
             ano = ano,
@@ -184,32 +185,7 @@ def subir_bicicletas(request):
     else:
         Http_response = render(
         request = request,
-        template_name = 'pre_entrega/lista_bicicletas.html', 
+        template_name = 'pre_entrega/formulario_crear_bicicletas.html', 
         )
         return Http_response
 
-def subir_autos(request): 
-    if request.method == "POST":
-        data = request.POST
-        marca = request ["marca"]
-        modelo = request ["modelo"]
-        ano = request ["ano"]
-        color = request ["color"]
-        equipamiento = request ["equipamiento"]
-        descripcion = request ["descripcion"]
-        auto = autos.objects.create(
-            marca = marca,
-            modelo = modelo,
-            ano = ano,
-            color = color,
-            equipamiento = equipamiento, 
-            descripcion = descripcion,
-        )
-        url_exitosa = reverse('autos')
-        return redirect(url_exitosa)
-    else:
-        Http_response = render(
-        request = request,
-        template_name = 'pre_entrega/lista_autos.html', 
-        )
-        return Http_response
