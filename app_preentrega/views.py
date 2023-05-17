@@ -16,7 +16,7 @@ def lista_autos(request): #esto renderiza una lista con el contexto que se le pa
 
 def lista_camionetas(request): #esto renderiza una lista con el contexto que se le pase
     contexto = { 
-        "camionetas" : Camionetas.objects.all()
+        "Camionetas" : Camionetas.objects.all()
     }
     http_response = render(
         request = request,
@@ -27,7 +27,7 @@ def lista_camionetas(request): #esto renderiza una lista con el contexto que se 
 
 def lista_camiones(request): #esto renderiza una lista con el contexto que se le pase
     contexto = { 
-        "camiones" : Camiones.objects.all()
+        "Camiones" : Camiones.objects.all()
     }
     http_response = render(
         request = request,
@@ -59,7 +59,7 @@ def lista_bicicletas(request): #esto renderiza una lista con el contexto que se 
     return http_response
 
 def subir_autos(request): 
-    if request.method == 'POST':
+    if request.method == "POST":
         data = request.POST
         marca = data ["marca"]
         modelo = data ["modelo"]
@@ -88,20 +88,21 @@ def subir_autos(request):
 def subir_camionetas(request): 
     if request.method == "POST":
         data = request.POST
-        marca = request ["marca"]
-        modelo = request ["modelo"]
-        ano = request ["ano"]
-        color = request ["color"]
-        equipamiento = request ["equipamiento"]
-        descripcion = request ["descripcion"]
-        Camionetas.objects.create(
+        marca = data ["marca"]
+        modelo = data ["modelo"]
+        ano = data ["ano"]
+        color = data ["color"]
+        equipamiento = data ["equipamiento"]
+        descripcion = data ["descripcion"]
+        camioneta = Camionetas(
             marca = marca,
             modelo = modelo,
             ano = ano,
             color = color,
             equipamiento = equipamiento, 
-            descripcion = descripcion,
+            descripcion = descripcion
         )
+        camioneta.save()
         url_exitosa = reverse('camionetas')
         return redirect(url_exitosa)
     else:
@@ -114,20 +115,22 @@ def subir_camionetas(request):
 def subir_camiones(request): 
     if request.method == "POST":
         data = request.POST
-        marca = request ["marca"]
-        modelo = request ["modelo"]
-        ano = request ["ano"]
-        color = request ["color"]
-        equipamiento = request ["equipamiento"]
-        descripcion = request ["descripcion"]
-        Camiones.objects.create(
+        marca = data ["marca"]
+        modelo = data ["modelo"]
+        ano = data ["ano"]
+        color = data ["color"]
+        equipamiento = data ["equipamiento"]
+        descripcion = data ["descripcion"]
+        camion = Camiones(
             marca = marca,
             modelo = modelo,
             ano = ano,
             color = color,
             equipamiento = equipamiento, 
-            descripcion = descripcion,
+            descripcion = descripcion
         )
+        camion.save()
+
         url_exitosa = reverse('camiones')
         return redirect(url_exitosa)
     else:
@@ -140,20 +143,22 @@ def subir_camiones(request):
 def subir_motos(request): 
     if request.method == "POST":
         data = request.POST
-        marca = request ["marca"]
-        modelo = request ["modelo"]
-        ano = request ["ano"]
-        color = request ["color"]
-        equipamiento = request ["equipamiento"]
-        descripcion = request ["descripcion"]
-        motos.objects.create(
+        marca = data ["marca"]
+        modelo = data ["modelo"]
+        ano = data ["ano"]
+        color = data ["color"]
+        equipamiento = data ["equipamiento"]
+        descripcion = data ["descripcion"]
+        moto = motos(
             marca = marca,
             modelo = modelo,
             ano = ano,
             color = color,
             equipamiento = equipamiento, 
-            descripcion = descripcion,
+            descripcion = descripcion
         )
+        moto.save()
+
         url_exitosa = reverse('motos')
         return redirect(url_exitosa)
     else:
@@ -166,20 +171,22 @@ def subir_motos(request):
 def subir_bicicletas(request): 
     if request.method == "POST":
         data = request.POST
-        marca = request ["marca"]
-        modelo = request ["modelo"]
-        ano = request ["ano"]
-        color = request ["color"]
-        equipamiento = request ["equipamiento"]
-        descripcion = request ["descripcion"]
-        bicicletas.objects.create(
+        marca = data ["marca"]
+        modelo = data ["modelo"]
+        ano = data ["ano"]
+        color = data ["color"]
+        equipamiento = data ["equipamiento"]
+        descripcion = data ["descripcion"]
+        bici = bicicletas(
             marca = marca,
             modelo = modelo,
             ano = ano,
             color = color,
             equipamiento = equipamiento, 
-            descripcion = descripcion,
+            descripcion = descripcion
         )
+        bici.save()
+
         url_exitosa = reverse('bicicletas')
         return redirect(url_exitosa)
     else:

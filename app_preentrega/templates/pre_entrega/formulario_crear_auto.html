@@ -1,8 +1,7 @@
 {% extends "pre_entrega/base.html" %} 
 
 {% block contenido %} 
-<section>    
-    <form action="{% url 'subir_autos'%}" method="POST"> 
+<form action="{% url 'subir_autos'%}" method="POST"> 
      {% csrf_token %}
      <p>Marca</p>
      <input type="text" name="marca">
@@ -17,6 +16,5 @@
      <p>Descripcion</p>
      <input type="text" name="descripcion">
      <input type="submit" value = "Enviar">
-    </form>
-</section>    
+</form>
 {% endblock contenido %}
