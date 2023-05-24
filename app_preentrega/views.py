@@ -196,3 +196,18 @@ def subir_bicicletas(request):
         )
         return Http_response
 
+def buscar_auto (request):
+    
+    if request.method == "POST":
+        data=request.POST
+        busqueda = data["busqueda"]
+        auto = autos.objects.filter(modelo__icontains=busqueda)
+        contexto = { 
+        "autos" : auto,
+        }
+    http_response = render(
+        request = request,
+        template_name = 'pre_entrega/lista_autos.html',
+        context = contexto,
+    )
+    return http_response
