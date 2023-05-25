@@ -4,6 +4,14 @@
 <section>
     <div>
         <h1>Lista de camionetas</h1>
+
+        <br><br>
+        <form action="{% url 'buscar_camionetas' %}" method="POST">
+            {%csrf_token%}
+            <input type="text" name="busqueda">
+            <input type="submit" value="Buscar modelo">
+        </form>
+
         <a class="navbar-brand" href="{% url 'subir_camionetas' %}"> Publicar camioneta </a>
         <ul> <!--con este codigo se crea una lista con los datos del contexto en la view-->
             {% for camioneta in Camionetas %}

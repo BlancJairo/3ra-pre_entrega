@@ -103,7 +103,7 @@ def subir_camionetas(request):
             descripcion = descripcion
         )
         camioneta.save()
-        url_exitosa = reverse('bicicletas')
+        url_exitosa = reverse('camionetas')
         return redirect(url_exitosa)
     else:
         Http_response = render(
@@ -208,6 +208,70 @@ def buscar_auto (request):
     http_response = render(
         request = request,
         template_name = 'pre_entrega/lista_autos.html',
+        context = contexto,
+    )
+    return http_response
+
+def buscar_camionetas (request):
+    
+    if request.method == "POST":
+        data=request.POST
+        busqueda = data["busqueda"]
+        camioneta = Camionetas.objects.filter(modelo__icontains=busqueda)
+        contexto = { 
+        "Camionetas" : camioneta,
+        }
+    http_response = render(
+        request = request,
+        template_name = 'pre_entrega/lista_camionetas.html',
+        context = contexto,
+    )
+    return http_response
+
+def buscar_camiones (request):
+    
+    if request.method == "POST":
+        data=request.POST
+        busqueda = data["busqueda"]
+        camion = Camiones.objects.filter(modelo__icontains=busqueda)
+        contexto = { 
+        "Camiones" : camion,
+        }
+    http_response = render(
+        request = request,
+        template_name = 'pre_entrega/lista_camiones.html',
+        context = contexto,
+    )
+    return http_response
+
+def buscar_bicicletas (request):
+    
+    if request.method == "POST":
+        data=request.POST
+        busqueda = data["busqueda"]
+        bici = bicicletas.objects.filter(modelo__icontains=busqueda)
+        contexto = { 
+        "bicicletas" : bici,
+        }
+    http_response = render(
+        request = request,
+        template_name = 'pre_entrega/lista_bicicletas.html',
+        context = contexto,
+    )
+    return http_response
+
+def buscar_motos (request):
+    
+    if request.method == "POST":
+        data=request.POST
+        busqueda = data["busqueda"]
+        motos = motos.objects.filter(modelo__icontains=busqueda)
+        contexto = { 
+        "motos" : motos,
+        }
+    http_response = render(
+        request = request,
+        template_name = 'pre_entrega/lista_motos.html',
         context = contexto,
     )
     return http_response
