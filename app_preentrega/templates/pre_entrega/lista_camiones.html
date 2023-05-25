@@ -13,11 +13,37 @@
             <input type="submit" value="Buscar modelo">
         </form>
 
-        <ul> <!--con este codigo se crea una lista con los datos del contexto en la view-->
-            {% for camion in Camiones %}
-                <li>{{camion.marca}}, {{camion.modelo}}, {{camion.ano}}
-            {% endfor %}           
-        </ul>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th> Marca </th>
+                    <th> Modelo </th>
+                    <th> Año </th>
+                    <th>  </th>
+                </tr>
+                <tr>
+                {% for camion in Camiones %}
+                <tr>
+                </tr>
+                    <td> {{camion.marca}} </td>
+                    <td> {{camion.modelo}} </td>
+                    <td> {{camion.ano}} </td>
+                    <td> 
+                        <form action="{% url 'editar_camiones' camion.id %}" method="POST">
+                            {%csrf_token%}
+                            <input type="submit" value="Editar"/>
+                        </form>    
+                    </td>
+                    <td> 
+                        <form action="{% url 'eliminar_camiones' camion.id %}" method="POST">
+                            {%csrf_token%}
+                            <input type="submit" value="Eliminar"/>
+                        </form>    
+                    </td>                    
+                </tr>   
+                {% endfor %}  
+            </tbody>
+        </table>
     </div>
 </section>
 {% endblock contenido%}

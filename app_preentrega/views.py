@@ -58,6 +58,8 @@ def lista_bicicletas(request): #esto renderiza una lista con el contexto que se 
     )
     return http_response
 
+#Con estas view creamos
+
 def subir_autos(request): 
     if request.method == "POST":
         data = request.POST
@@ -196,6 +198,8 @@ def subir_bicicletas(request):
         )
         return Http_response
 
+#Con estas view buscamos 
+
 def buscar_auto (request):
     
     if request.method == "POST":
@@ -261,7 +265,7 @@ def buscar_bicicletas (request):
     return http_response
 
 def buscar_motos (request):
-    
+        
     if request.method == "POST":
         data=request.POST
         busqueda = data["busqueda"]
@@ -275,3 +279,65 @@ def buscar_motos (request):
         context = contexto,
     )
     return http_response
+
+#Con estas view eliminamos 
+
+def eliminar_auto(request, id): 
+   
+    auto = autos.objects.get(id=id)
+    
+    if request.method == "POST":
+        
+        auto.delete()
+
+        url_exitosa = reverse('autos')
+        return redirect(url_exitosa)
+    
+def eliminar_camionetas(request, id): 
+   
+    camioneta = Camionetas.objects.get(id=id)
+    
+    if request.method == "POST":
+        
+        camioneta.delete()
+
+        url_exitosa = reverse('camionetas')
+        return redirect(url_exitosa)   
+
+def eliminar_camiones(request, id): 
+   
+    camion = Camiones.objects.get(id=id)
+    
+    if request.method == "POST":
+        
+        camion.delete()
+
+        url_exitosa = reverse('camiones')
+        return redirect(url_exitosa)  
+
+def eliminar_motos(request, id): 
+   
+    moto = motos.objects.get(id=id)
+    
+    if request.method == "POST":
+        
+        moto.delete()
+
+        url_exitosa = reverse('motos')
+        return redirect(url_exitosa) 
+
+def eliminar_bicicletas(request, id): 
+   
+    bici = bicicletas.objects.get(id=id)
+    
+    if request.method == "POST":
+        
+        bici.delete()
+
+        url_exitosa = reverse('bicicletas')
+        return redirect(url_exitosa)                   
+    
+#Con estas view editamos
+
+def editar_auto (request, id):
+    return redirect  (reverse('autos'))
