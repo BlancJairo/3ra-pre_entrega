@@ -18,8 +18,10 @@ Including another URLconf
 from django.urls import path
 
 from app_preentrega.views import lista_autos, lista_camionetas, lista_camiones, lista_motos, lista_bicicletas,\
-    subir_autos, subir_camionetas, subir_camiones, subir_motos,subir_bicicletas, buscar_auto, buscar_camionetas, buscar_camiones,\
-    buscar_camiones, buscar_bicicletas, buscar_motos, eliminar_auto, editar_auto, eliminar_camionetas, eliminar_camiones, eliminar_motos, eliminar_bicicletas
+    subir_autos, subir_camionetas, subir_camiones, subir_motos,subir_bicicletas,\
+    buscar_auto, buscar_camionetas, buscar_camiones, buscar_camiones, buscar_bicicletas, buscar_motos,\
+    eliminar_auto, eliminar_camionetas, eliminar_camiones, eliminar_motos, eliminar_bicicletas,\
+    editar_auto, editar_camionetas, editar_camiones, editar_motos, editar_bicicletas
 
 urlpatterns = [
     # Path de listar
@@ -48,4 +50,8 @@ urlpatterns = [
     path('eliminar-bicicletas/<int:id>/', eliminar_bicicletas, name="eliminar_bicicletas"),   
     # Path de editar
     path('editar-autos/<int:id>/', editar_auto, name="editar_auto"),
+    path('editar-camionetas/<int:id>/', editar_camionetas, name="editar_camionetas"),
+    path('editar-camiones/<int:id>/', editar_camiones, name="editar_camiones"),
+    path('editar-motos/<int:id>/', editar_motos, name="editar_motos"),
+    path('editar-bicicletas/<int:id>/', editar_bicicletas, name="editar_bicicletas"),
 ]

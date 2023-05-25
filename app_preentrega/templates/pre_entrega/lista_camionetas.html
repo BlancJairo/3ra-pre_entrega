@@ -5,6 +5,8 @@
     <div>
         <h1>Lista de camionetas</h1>
 
+        <a class="navbar-brand" href="{% url 'subir_camionetas' %}"> Publicar camioneta </a>
+
         <br><br>
         <form action="{% url 'buscar_camionetas' %}" method="POST">
             {%csrf_token%}
@@ -12,12 +14,37 @@
             <input type="submit" value="Buscar modelo">
         </form>
 
-        <a class="navbar-brand" href="{% url 'subir_camionetas' %}"> Publicar camioneta </a>
-        <ul> <!--con este codigo se crea una lista con los datos del contexto en la view-->
-            {% for camioneta in Camionetas %}
-                <li>{{camioneta.marca}}, {{camioneta.modelo}}, {{camioneta.ano}}
-            {% endfor %}           
-        </ul>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th> Marca </th>
+                    <th> Modelo </th>
+                    <th> Año </th>
+                    <th>  </th>
+                </tr>
+                <tr>
+                {% for camioneta in Camionetas %}
+                <tr>
+                </tr>
+                    <td> {{camioneta.marca}} </td>
+                    <td> {{camioneta.modelo}} </td>
+                    <td> {{camioneta.ano}} </td>
+                    <td> 
+                        <form action="{% url 'editar_camionetas' camioneta.id %}" method="POST">
+                            {%csrf_token%}
+                            <input type="submit" value="Editar"/>
+                        </form>    
+                    </td>
+                    <td> 
+                        <form action="{% url 'eliminar_camionetas' camioneta.id %}" method="POST">
+                            {%csrf_token%}
+                            <input type="submit" value="Eliminar"/>
+                        </form>    
+                    </td>                    
+                </tr>   
+                {% endfor %}  
+            </tbody>
+        </table>
     </div>
 </section>
 {% endblock contenido%}

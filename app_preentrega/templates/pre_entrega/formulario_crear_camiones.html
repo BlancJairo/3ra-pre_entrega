@@ -4,18 +4,7 @@
 <h1>Publicar un camion</h1>
 <form action="{% url 'subir_camiones'%}" method="POST"> 
     {% csrf_token %}    
-    <p>Marca</p>
-    <input type="text" name="marca">
-    <p>Modelo</p>
-    <input type="text" name="modelo">
-    <p>Año</p>
-    <input type="text" name="ano">
-    <p>Color</p>
-    <input type="text" name="color">
-    <p>Equipamiento</p>
-    <input type="text" name="equipamiento">
-    <p>Descripcion</p>
-    <input type="text" name="descripcion">
+    {{ formulario.as_p }}
     <input type="submit" value = "Enviar">
 </form>
 {% endblock contenido %}

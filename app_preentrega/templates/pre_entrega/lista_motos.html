@@ -22,20 +22,20 @@
                     <th>  </th>
                 </tr>
                 <tr>
-                {% for bici in bicicletas %}
+                {% for moto in motos %}
                 <tr>
                 </tr>
-                    <td> {{bici.marca}} </td>
-                    <td> {{bici.modelo}} </td>
-                    <td> {{bici.ano}} </td>
+                    <td> {{moto.marca}} </td>
+                    <td> {{moto.modelo}} </td>
+                    <td> {{moto.ano}} </td>
                     <td> 
-                        <form action="{% url 'editar_bicicletas' bici.id %}" method="POST">
+                        <form action="{% url 'editar_motos' moto.id %}" method="POST">
                             {%csrf_token%}
                             <input type="submit" value="Editar"/>
                         </form>    
                     </td>
                     <td> 
-                        <form action="{% url 'eliminar_bicicletas' bici.id %}" method="POST">
+                        <form action="{% url 'eliminar_motos' moto.id %}" method="POST">
                             {%csrf_token%}
                             <input type="submit" value="Eliminar"/>
                         </form>    
