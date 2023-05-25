@@ -1,6 +1,7 @@
 {% extends "pre_entrega/base.html" %} 
 
 {% block contenido %} 
+<h1>Publicar una bicicleta</h1>
 <form action="{% url 'subir_bicicletas'%}" method="POST"> 
     {% csrf_token %}
     <p>Marca</p>

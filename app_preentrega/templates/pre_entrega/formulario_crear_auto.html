@@ -1,6 +1,7 @@
 {% extends "pre_entrega/base.html" %} 
 
 {% block contenido %} 
+<h1>Publicar un Auto</h1>
 <form action="{% url 'subir_autos'%}" method="POST"> 
      {% csrf_token %}
      <p>Marca</p>

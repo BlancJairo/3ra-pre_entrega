@@ -103,7 +103,7 @@ def subir_camionetas(request):
             descripcion = descripcion
         )
         camioneta.save()
-        url_exitosa = reverse('camionetas')
+        url_exitosa = reverse('bicicletas')
         return redirect(url_exitosa)
     else:
         Http_response = render(

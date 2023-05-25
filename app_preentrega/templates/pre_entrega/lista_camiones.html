@@ -6,8 +6,8 @@
         <h1>Lista de camiones</h1>
         <a class="navbar-brand" href="{% url 'subir_camiones' %}"> Publicar camion </a>
         <ul> <!--con este codigo se crea una lista con los datos del contexto en la view-->
-            {% for auto in autos %}
-                <li>{{auto.marca}}, {{auto.modelo}}, {{auto.ano}}
+            {% for camion in Camiones %}
+                <li>{{camion.marca}}, {{camion.modelo}}, {{camion.ano}}
             {% endfor %}           
         </ul>
     </div>
