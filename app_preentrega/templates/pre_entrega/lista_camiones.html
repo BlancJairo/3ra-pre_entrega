@@ -29,7 +29,7 @@
                     <td> {{camion.modelo}} </td>
                     <td> {{camion.ano}} </td>
                     <td> 
-                        <form action="{% url 'editar_camiones' camion.id %}" method="POST">
+                        <form action="{% url 'editar_camiones' camion.id %}">
                             {%csrf_token%}
                             <input type="submit" value="Editar"/>
                         </form>    

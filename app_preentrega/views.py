@@ -66,7 +66,7 @@ def subir_autos(request):
         formulario = Formulario(request.POST)
 
         if formulario.is_valid():
-            data = request.POST
+            data = formulario.cleaned_data
             marca = data ["marca"]
             modelo = data ["modelo"]
             ano = data ["ano"]
@@ -99,7 +99,7 @@ def subir_camionetas(request):
         formulario = Formulario(request.POST)
 
         if formulario.is_valid():
-            data = request.POST
+            data = formulario.cleaned_data
             marca = data ["marca"]
             modelo = data ["modelo"]
             ano = data ["ano"]
@@ -132,7 +132,7 @@ def subir_camiones(request):
         formulario = Formulario(request.POST)
 
         if formulario.is_valid():
-            data = request.POST
+            data = formulario.cleaned_data
             marca = data ["marca"]
             modelo = data ["modelo"]
             ano = data ["ano"]
@@ -165,7 +165,7 @@ def subir_motos(request):
         formulario = Formulario(request.POST)
 
         if formulario.is_valid():
-            data = request.POST
+            data = formulario.cleaned_data
             marca = data ["marca"]
             modelo = data ["modelo"]
             ano = data ["ano"]
@@ -198,7 +198,7 @@ def subir_bicicletas(request):
         formulario = Formulario(request.POST)
 
         if formulario.is_valid():
-            data = request.POST
+            data = formulario.cleaned_data
             marca = data ["marca"]
             modelo = data ["modelo"]
             ano = data ["ano"]
@@ -296,9 +296,9 @@ def buscar_motos (request):
     if request.method == "POST":
         data=request.POST
         busqueda = data["busqueda"]
-        motos = motos.objects.filter(modelo__icontains=busqueda)
+        moto = motos.objects.filter(modelo__icontains=busqueda)
         contexto = { 
-        "motos" : motos,
+        "motos" : moto,
         }
     http_response = render(
         request = request,
@@ -367,16 +367,171 @@ def eliminar_bicicletas(request, id):
 #Con estas view editamos
 
 def editar_auto (request, id):
-    return redirect  (reverse('autos'))
+    Vehiculo = autos.objects.get(id=id)
+    if request.method == "POST":
+        formulario = Formulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            Vehiculo.marca = data ["marca"]
+            Vehiculo.modelo = data ["modelo"]
+            Vehiculo.ano = data ["ano"]
+            Vehiculo.color = data ["color"]
+            Vehiculo.equipamiento = data ["equipamiento"]
+            Vehiculo.descripcion = data ["descripcion"]
+            Vehiculo.save()
+            url_exitosa = reverse('autos')
+            return redirect(url_exitosa)
+     
+    else:
+        inicial= {
+            'marca' : Vehiculo.marca,
+            'modelo' : Vehiculo.modelo,
+            'ano' : Vehiculo.ano,
+            'color' : Vehiculo.color,
+            'equipamiento' : Vehiculo.equipamiento,
+            'descripcion' : Vehiculo.descripcion
+        }
+        formulario = Formulario(initial=inicial)    
+    Http_response = render(
+        request = request,
+        template_name = 'pre_entrega/formulario_crear_auto.html', 
+        context={'formulario':formulario}
+        )
+    return Http_response
 
 def editar_camionetas (request, id):
-    return redirect  (reverse('autos'))
+    Vehiculo = Camionetas.objects.get(id=id)
+    if request.method == "POST":
+        formulario = Formulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            Vehiculo.marca = data ["marca"]
+            Vehiculo.modelo = data ["modelo"]
+            Vehiculo.ano = data ["ano"]
+            Vehiculo.color = data ["color"]
+            Vehiculo.equipamiento = data ["equipamiento"]
+            Vehiculo.descripcion = data ["descripcion"]
+            Vehiculo.save()
+            url_exitosa = reverse('camionetas')
+            return redirect(url_exitosa)
+     
+    else:
+        inicial= {
+            'marca' : Vehiculo.marca,
+            'modelo' : Vehiculo.modelo,
+            'ano' : Vehiculo.ano,
+            'color' : Vehiculo.color,
+            'equipamiento' : Vehiculo.equipamiento,
+            'descripcion' : Vehiculo.descripcion
+        }
+        formulario = Formulario(initial=inicial)    
+    Http_response = render(
+        request = request,
+        template_name = 'pre_entrega/formulario_crear_camionetas.html', 
+        context={'formulario':formulario}
+        )
+    return Http_response
 
 def editar_camiones (request, id):
-    return redirect  (reverse('autos'))
+    Vehiculo = Camiones.objects.get(id=id)
+    if request.method == "POST":
+        formulario = Formulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            Vehiculo.marca = data ["marca"]
+            Vehiculo.modelo = data ["modelo"]
+            Vehiculo.ano = data ["ano"]
+            Vehiculo.color = data ["color"]
+            Vehiculo.equipamiento = data ["equipamiento"]
+            Vehiculo.descripcion = data ["descripcion"]
+            Vehiculo.save()
+            url_exitosa = reverse('camiones')
+            return redirect(url_exitosa)
+     
+    else:
+        inicial= {
+            'marca' : Vehiculo.marca,
+            'modelo' : Vehiculo.modelo,
+            'ano' : Vehiculo.ano,
+            'color' : Vehiculo.color,
+            'equipamiento' : Vehiculo.equipamiento,
+            'descripcion' : Vehiculo.descripcion
+        }
+        formulario = Formulario(initial=inicial)    
+    Http_response = render(
+        request = request,
+        template_name = 'pre_entrega/formulario_crear_camiones.html', 
+        context={'formulario':formulario}
+        )
+    return Http_response
 
 def editar_motos (request, id):
-    return redirect  (reverse('autos'))
+    Vehiculo = motos.objects.get(id=id)
+    if request.method == "POST":
+        formulario = Formulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            Vehiculo.marca = data ["marca"]
+            Vehiculo.modelo = data ["modelo"]
+            Vehiculo.ano = data ["ano"]
+            Vehiculo.color = data ["color"]
+            Vehiculo.equipamiento = data ["equipamiento"]
+            Vehiculo.descripcion = data ["descripcion"]
+            Vehiculo.save()
+            url_exitosa = reverse('motos')
+            return redirect(url_exitosa)
+     
+    else:
+        inicial= {
+            'marca' : Vehiculo.marca,
+            'modelo' : Vehiculo.modelo,
+            'ano' : Vehiculo.ano,
+            'color' : Vehiculo.color,
+            'equipamiento' : Vehiculo.equipamiento,
+            'descripcion' : Vehiculo.descripcion
+        }
+        formulario = Formulario(initial=inicial)    
+    Http_response = render(
+        request = request,
+        template_name = 'pre_entrega/formulario_crear_motos.html', 
+        context={'formulario':formulario}
+        )
+    return Http_response
 
 def editar_bicicletas (request, id):
-    return redirect  (reverse('autos'))
+    Vehiculo = bicicletas.objects.get(id=id)
+    if request.method == "POST":
+        formulario = Formulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            Vehiculo.marca = data ["marca"]
+            Vehiculo.modelo = data ["modelo"]
+            Vehiculo.ano = data ["ano"]
+            Vehiculo.color = data ["color"]
+            Vehiculo.equipamiento = data ["equipamiento"]
+            Vehiculo.descripcion = data ["descripcion"]
+            Vehiculo.save()
+            url_exitosa = reverse('bicicletas')
+            return redirect(url_exitosa)
+     
+    else:
+        inicial= {
+            'marca' : Vehiculo.marca,
+            'modelo' : Vehiculo.modelo,
+            'ano' : Vehiculo.ano,
+            'color' : Vehiculo.color,
+            'equipamiento' : Vehiculo.equipamiento,
+            'descripcion' : Vehiculo.descripcion
+        }
+        formulario = Formulario(initial=inicial)    
+    Http_response = render(
+        request = request,
+        template_name = 'pre_entrega/formulario_crear_bicicletas.html', 
+        context={'formulario':formulario}
+        )
+    return Http_response

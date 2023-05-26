@@ -2,9 +2,10 @@
 
 {% block contenido %} 
 <h1>Publicar un camion</h1>
-<form action="{% url 'subir_camiones'%}" method="POST"> 
+<form method="POST"> 
     {% csrf_token %}    
     {{ formulario.as_p }}
+    {{ formulario.erros }}
     <input type="submit" value = "Enviar">
 </form>
 {% endblock contenido %}

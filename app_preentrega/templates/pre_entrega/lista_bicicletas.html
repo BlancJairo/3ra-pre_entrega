@@ -29,7 +29,7 @@
                     <td> {{bici.modelo}} </td>
                     <td> {{bici.ano}} </td>
                     <td> 
-                        <form action="{% url 'editar_bicicletas' bici.id %}" method="POST">
+                        <form action="{% url 'editar_bicicletas' bici.id %}">
                             {%csrf_token%}
                             <input type="submit" value="Editar"/>
                         </form>    
